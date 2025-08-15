@@ -1,0 +1,8 @@
+float64[7] joints
+int8 mode #0:no gripper; 1:pick; 2:place
+float32 gripper_speed
+float32 gripper_force
+float32 gripper_width
+---
+bool result
+string message

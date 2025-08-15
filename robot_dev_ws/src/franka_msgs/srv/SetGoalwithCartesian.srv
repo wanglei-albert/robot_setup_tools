@@ -1,0 +1,13 @@
+float32 x
+float32 y
+float32 z
+float32 rx
+float32 ry
+float32 rz
+float32 gripper_width
+float32 gripper_speed
+float32 gripper_force
+int8 mode #0:no gripper; 1:pick; 2:place
+---
+bool result
+string message

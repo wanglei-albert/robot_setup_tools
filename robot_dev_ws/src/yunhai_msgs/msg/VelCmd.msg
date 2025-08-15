@@ -1,0 +1,2 @@
+float32 line_vel
+float32 angular_vel

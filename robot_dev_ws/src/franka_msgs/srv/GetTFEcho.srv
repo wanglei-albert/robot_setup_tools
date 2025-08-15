@@ -1,0 +1,7 @@
+string parent_link
+string child_link
+---
+geometry_msgs/Point translation
+geometry_msgs/Quaternion orientation
+geometry_msgs/Point rpy
+geometry_msgs/Point rpy_deg

@@ -1,0 +1,29 @@
+agv:
+  - name: 起始点位
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+  - name: 充电点位
+    x: 0.1
+    y: 0.1
+    yaw: 0.1
+  - name: 泊车点位
+    x: 0.2
+    y: 0.2
+    yaw: 0.2
+arm:
+  picking_pose:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+
+  placing_pose:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0

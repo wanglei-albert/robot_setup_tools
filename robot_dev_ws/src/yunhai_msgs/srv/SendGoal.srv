@@ -1,0 +1,7 @@
+string marker
+float32 x
+float32 y
+float32 theta
+bool use_location
+---
+string result

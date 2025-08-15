@@ -1,0 +1,15 @@
+string status
+string error
+string move_target
+string move_status
+string running_status
+bool charge_state
+bool soft_estop_state
+bool hard_estop_state
+bool estop_state
+int32 power_percent
+uint8 move_retry_times
+float32 c_pose_x
+float32 c_pose_y
+float32 c_pose_theta
+int32 c_floor
