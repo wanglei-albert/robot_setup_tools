@@ -2,8 +2,8 @@
 Changelog for package robot_setup_tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.2 (2025-08-15)
+------------------
 * adjust repository's directory structure
 * Contributors: wanglei
 
