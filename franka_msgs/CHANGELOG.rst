@@ -2,6 +2,11 @@
 Changelog for package franka_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* adjust repository's directory structure
+* Contributors: wanglei
+
 0.1.1 (2025-08-15)
 ------------------
 * add change log
