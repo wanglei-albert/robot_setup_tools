@@ -6,7 +6,8 @@ class ArucoReadNode():
     def __init__(self):
         rospy.loginfo('ArmCtrlNode has been started!')
 
-    def read_qr_code(self, marker_id):
+    def read_markers(self, marker_ids = None):
+        rospy.loginfo(f'reading markers....')
         aruco_msg = rospy.wait_for_message('markers', MarkerArray)
         result = []
         for marker in aruco_msg.markers:

@@ -258,7 +258,7 @@
                 </widget>
                </item>
                <item row="6" column="3">
-                <widget class="QPushButton" name="btn_set_pick_pose_via_read_aruco">
+                <widget class="QPushButton" name="btn_set_goal_via_read_aruco">
                  <property name="maximumSize">
                   <size>
                    <width>118</width>
@@ -371,7 +371,7 @@
                 </size>
                </property>
                <property name="text">
-                <string>pitch</string>
+                <string>ry</string>
                </property>
               </widget>
              </item>
@@ -423,7 +423,7 @@
                 </size>
                </property>
                <property name="text">
-                <string>roll</string>
+                <string>rx</string>
                </property>
               </widget>
              </item>
@@ -449,7 +449,7 @@
                 </size>
                </property>
                <property name="text">
-                <string>yaw</string>
+                <string>rz</string>
                </property>
               </widget>
              </item>
@@ -644,6 +644,12 @@
              </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label_13">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="maximumSize">
                 <size>
                  <width>12</width>
@@ -673,21 +679,14 @@
              </item>
              <item row="5" column="0">
               <widget class="QLabel" name="label_18">
-               <property name="text">
-                <string>yaw</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QPushButton" name="btn_set_place_pose_via_read_aruco">
-               <property name="maximumSize">
+               <property name="minimumSize">
                 <size>
-                 <width>118</width>
-                 <height>16777215</height>
+                 <width>30</width>
+                 <height>0</height>
                 </size>
                </property>
                <property name="text">
-                <string>读二维码</string>
+                <string>rz</string>
                </property>
               </widget>
              </item>
@@ -706,6 +705,12 @@
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_15">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>z</string>
                </property>
@@ -729,8 +734,14 @@
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_16">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
-                <string>roll</string>
+                <string>rx</string>
                </property>
               </widget>
              </item>
@@ -749,6 +760,12 @@
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_14">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>y</string>
                </property>
@@ -772,8 +789,14 @@
              </item>
              <item row="4" column="0">
               <widget class="QLabel" name="label_17">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
-                <string>pitch</string>
+                <string>ry</string>
                </property>
               </widget>
              </item>
@@ -878,7 +901,7 @@
             <height>169</height>
            </size>
           </property>
-          <widget class="QTextBrowser" name="textBrowser">
+          <widget class="QTextBrowser" name="tb_log_output">
            <property name="geometry">
             <rect>
              <x>0</x>
