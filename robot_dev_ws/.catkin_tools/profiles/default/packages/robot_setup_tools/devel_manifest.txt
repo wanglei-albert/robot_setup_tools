@@ -1,4 +1,0 @@
-robot_setup_tools
-/home/bigai/Documents/project/robot_dev_ws/devel/.private/robot_setup_tools/lib/pkgconfig/robot_setup_tools.pc /home/bigai/Documents/project/robot_dev_ws/devel/lib/pkgconfig/robot_setup_tools.pc
-/home/bigai/Documents/project/robot_dev_ws/devel/.private/robot_setup_tools/share/robot_setup_tools/cmake/robot_setup_toolsConfig.cmake /home/bigai/Documents/project/robot_dev_ws/devel/share/robot_setup_tools/cmake/robot_setup_toolsConfig.cmake
-/home/bigai/Documents/project/robot_dev_ws/devel/.private/robot_setup_tools/share/robot_setup_tools/cmake/robot_setup_toolsConfig-version.cmake /home/bigai/Documents/project/robot_dev_ws/devel/share/robot_setup_tools/cmake/robot_setup_toolsConfig-version.cmake
