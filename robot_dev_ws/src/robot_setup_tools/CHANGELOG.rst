@@ -2,8 +2,8 @@
 Changelog for package robot_setup_tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2025-08-15)
+------------------
 * add change log
 * Contributors: wanglei
 

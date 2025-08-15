@@ -2,8 +2,8 @@
 Changelog for package aruco_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2025-08-15)
+------------------
 * add change log
 * Contributors: wanglei
 
