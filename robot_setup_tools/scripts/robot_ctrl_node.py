@@ -3,6 +3,7 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Pose
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from yunhai_msgs.srv import SendGoal, SendGoalRequest
+from yunhai_msgs.srv import CancelMove, CancelMoveRequest
 from franka_msgs.msg import FrankaState
 from franka_msgs.srv import GetTFEcho, GetTFEchoRequest, GetTFEchoResponse
 from franka_msgs.srv import SetGoalwithCartesian, SetGoalwithCartesianRequest
@@ -10,13 +11,15 @@ from franka_msgs.srv import SetGoalwithCartesian, SetGoalwithCartesianRequest
 class RobotCtrlNode():
     def __init__(self):
         rospy.loginfo('ArmCtrlNode has been started!')
-        self._nav_goal_service_name = '/yunhai_go_pose'
-        self._move_arm_cart_service_name = 'franka_cartesianGoal'
-        self._echo_tf_service_name = '/tf_echo_server'
+        self._nav_goal_service_name = 'nav_goal_srv'
+        self._cancel_nav_service_name = 'cancel_nav_srv'
+        self._move_arm_cart_service_name = 'move_arm_srv'
+        self._echo_tf_service_name = 'get_tf_srv'
         self._nav_to_goal_cli = rospy.ServiceProxy(self._nav_goal_service_name, SendGoal)
+        self._cancel_nav_cli = rospy.ServiceProxy(self._cancel_nav_service_name, CancelMove)
         self._get_cur_arm_pose_cli = rospy.ServiceProxy(self._echo_tf_service_name, GetTFEcho)
         self._move_arm_to_cart_pose_cli = rospy.ServiceProxy(self._move_arm_cart_service_name, SetGoalwithCartesian)
-        rospy.Subscriber('/franka_state_controller/franka_states', FrankaState, self.on_arm_pose_msg)
+        rospy.Subscriber('arm_state', FrankaState, self.on_arm_pose_msg)
         self._arm_pose = FrankaState()
 
 
@@ -27,8 +30,9 @@ class RobotCtrlNode():
         try:
             rospy.wait_for_service(self._echo_tf_service_name, 5)
             req = GetTFEchoRequest()
-            req.parent_link = 'pand_link0'
-            req.child_link = 'pand_link8'
+            
+            req.parent_link = rospy.get_param('parent_link', 'pand_link0')
+            req.child_link = rospy.get_param('child_link', 'pand_link8')
 
             resp = self._get_cur_arm_pose_cli(req)
 
@@ -50,7 +54,7 @@ class RobotCtrlNode():
             nav_req.x, nav_req.y, nav_req.theta = x, y, yaw
             nav_req.use_location = use_coord_nav
             
-            resp = self.self._nav_to_goal_cli(nav_req)
+            resp = self._nav_to_goal_cli(nav_req)
 
             return True, resp.result
         except Exception as e:
@@ -58,6 +62,16 @@ class RobotCtrlNode():
             return False, f'exception: {e}'
 
 
+    def cancel_nav(self):
+        try:
+            rospy.wait_for_service(self._nav_goal_service_name, 5)
+            req = CancelMoveRequest()
+            resp = self._cancel_nav_cli(req)
+
+            return True, resp.result
+        except Exception as e:
+            rospy.logerr(f'failed to cancel navigating, exception: {e}')
+            return False, f'exception: {e}'
 
     def move_to_pose(self, x: float, y: float, z: float, roll: float, pitch: float, yaw: float):
         try:
@@ -75,7 +89,7 @@ class RobotCtrlNode():
 
             resp = self._move_arm_to_cart_pose_cli(motion_req)
 
-            rospy.logwarn(f'pick pose msg has been published, pose: {x}, {y}, {z}, rotation: {roll}, {pitch}, {yaw}')
+            rospy.logwarn(f'call SendGoalwithCartesian service to move to pick pose: {x}, {y}, {z}, rotation: {roll}, {pitch}, {yaw}')
             return resp.result, resp.message
         except Exception as e:
             rospy.logerr(f'failed to navigating to goal pose(x, y, yaw): {x}, {y}, {yaw}')

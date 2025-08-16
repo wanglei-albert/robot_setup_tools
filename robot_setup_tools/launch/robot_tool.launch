@@ -1,7 +1,35 @@
 <launch>
    <!-- log_level valid values: debug, info, warn, err, fatal -->
    <arg name="log_level" default="info"/>
+   <arg name="parent_link" default="pand_link0"/>
+   <arg name="child_link" default="pand_link8"/>
+
    <node pkg="robot_setup_tools" name="robot_setup_tools_node" type="robot_setup_tools_node.py">
       <param name="log_level" type="string" value="$(arg log_level)"/>
+
+      <!-- transformation of which links -->
+      <param name="parent_link" type="string" value="${arg parent_link}"/>
+      <param name="child_link" type="string" value="${arg child_link}"/>
+      <!-- <remap from="arm_state" to="/franka_state_controller/franka_states"/> -->
+
+      <!-- aruco reading topics -->
+      <!-- only uncomment this if marker message is published on topic marker -->
+      <!-- <remap from="markers" to="marker"> -->
+
+      <!-- only uncomment this if all markers message is published on topic markers -->
+      <remap from="markers" to="/markers"/>
+
+      <!-- get franka tf transformation -->
+      <remap from="get_tf_srv" to="/tf_echo_server"/>
+
+      <!-- sent target to move franka arm -->
+      <remap from="move_arm_srv" to="/franka_cartesianGoal"/>
+
+      <!-- sent goal to navigate yunhai agv -->
+      <remap from="nav_goal_srv" to="/yunhai_go_pose"/>
+
+      <!-- cancel navigating yunhai agv -->
+      <remap from="cancel_nav_srv" to="/yunhai_CancelMove"/>
+
    </node>
 </launch>

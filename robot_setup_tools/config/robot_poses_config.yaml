@@ -1,16 +1,12 @@
 agv:
-- name: '26'
-  x: 0.0
-  y: 2.0
-  yaw: 0.0
-- name: '582'
-  x: 0.1
-  y: 0.1
-  yaw: 0.1
-- name: '33'
-  x: 0.2
-  y: 0.2
-  yaw: 0.2
+  - name: '26'
+    x: 0.0
+    y: 1.0
+    yaw: 0.0
+  - name: '582'
+    x: 0.1
+    y: 0.1
+    yaw: 0.1
 arm:
   picking_pose:
     x: 0.0
@@ -26,3 +22,18 @@ arm:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+gripper:
+  open:
+    width: 0.08
+    speed: 0.5
+    force: 0.0
+  close:
+    width: 0.05
+    speed: 0.3
+    force: 5.0
+cmm:
+  connection:
+    ip: '127.0.0.1'
+    port: '1234'
+  message: 'StartSession(0811)' 
+
